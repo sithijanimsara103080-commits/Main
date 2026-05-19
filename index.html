@@ -257,7 +257,7 @@
     </div>
 
     <div class="relative z-10 mt-8 mb-8 flex justify-center">
-      <img decoding="async" class="themephi-multi-image veritcal w-24 md:w-32 opacity-60" id="hero-floating-asset" src="https://rccastro.kesug.com/assets/astronaut.webp" alt="Floating Space Asset">
+      <img decoding="async" class="themephi-multi-image veritcal w-24 md:w-32 opacity-60" id="hero-floating-asset" src="assets/astronaut.webp" alt="Floating Space Asset">
     </div>
 
     <section id="about" class="z-10 w-full max-w-7xl mt-12 mr-auto mb-24 ml-auto pr-0 pl-0 relative space-y-20">
@@ -682,10 +682,10 @@
         
         if (!membersError && membersData && membersData.length > 0) {
           membersContainer.innerHTML = membersData.map(m => {
-            const avatar = m.image_url || 'https://rccastro.kesug.com/assets/astronaut.webp';
+            const avatar = m.image_url || 'assets/astronaut.webp';
             return `
               <div class="w-72 p-6 border border-white/10 bg-black/40 backdrop-blur-sm rounded-2xl text-center transform hover:scale-105 transition-all duration-300 liquid-glass flex flex-col items-center">
-                <img src="${avatar}" class="w-24 h-24 rounded-full object-cover mb-4 border border-blue-500/30 shadow-lg" onerror="this.src='https://rccastro.kesug.com/assets/astronaut.webp'">
+                <img src="${avatar}" class="w-24 h-24 rounded-full object-cover mb-4 border border-blue-500/30 shadow-lg" onerror="this.src='assets/astronaut.webp'">
                 <h3 class="text-white font-bold text-xl font-oswald mb-1">${m.name}</h3>
                 <p class="text-blue-400 text-sm font-sans font-medium mb-3">${m.position}</p>
                 <div class="flex gap-3 mt-auto">
@@ -708,7 +708,7 @@
             const tAvatar = t.image_url || 'assets/astronaut.webp';
             return `
               <div class="w-72 p-6 border border-amber-500/40 bg-black/40 backdrop-blur-sm text-center transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
-                <img src="${tAvatar}" class="w-24 h-24 rounded-full object-cover mb-4 border border-amber-500/30 shadow-lg" onerror="this.src='https://rccastro.kesug.com/assets/astronaut.webp'">
+                <img src="${tAvatar}" class="w-24 h-24 rounded-full object-cover mb-4 border border-amber-500/30 shadow-lg" onerror="this.src='assets/astronaut.webp'">
                 <h3 class="text-white font-bold text-xl font-oswald mb-1">${t.designation}</h3>
                 <p class="text-amber-500 text-lg font-sans font-medium mb-2">${t.name}</p>
                 <p class="text-gray-400 font-sans text-xs leading-relaxed mt-auto">Guiding and mentoring the society's structural growth and cosmic exploration research framework.</p>
