@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>RCC Astro Quiz</title>
+<link rel="icon" type="image/png" href="https://rccastro.kesug.com/assets/RAS%20Logo.png">
+
+<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlJDQyBBc3RybyBRdWl6IiwKICAic2hvcnRfbmFtZSI6ICJBc3RybyBRdWl6IiwKICAic3RhcnRfdXJsIjogImh0dHBzOi8vcmNjYXN0cm8ua2VzdWcuY29tL3F1aXo/aT0xIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMDAwMDAwIiwKICAidGhlbWVfY29sb3IiOiAiIzAwMDAwMCIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImh0dHBzOi8vcmNjYXN0cm8ua2VzdWcuY29tL2Fzc2V0cy9SQVMlMjBMb2dvLnBuZyIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInR5cGUiOiAiaW1hZ2UvcG5nIgogICAgfQogIF0KfQ==">
+
+<style>
+* {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+*::-webkit-scrollbar {
+    display: none !important;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* LOADER */
+#loader-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #0d0b25, #000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999999;
+    transition: opacity 0.6s ease;
+}
+
+.loader-ring {
+    width: 70px;
+    height: 70px;
+    border: 5px solid rgba(255,255,255,0.1);
+    border-top: 5px solid #6c3ce0;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    margin-top: 15px;
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ✅ IFRAME FULL FIX */
+#iframe-holder {
+    width: 100%;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100vh;   /* 🔥 KEY FIX */
+    border: none;
+    display: block;
+}
+
+/* INSTALL BAR */
+#install-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(13,11,37,0.95);
+    color: white;
+    padding: 12px;
+    text-align: center;
+    z-index: 2000000;
+}
+
+#install-btn {
+    background: linear-gradient(90deg, #6c3ce0, #e05c86);
+    border: none;
+    padding: 6px 20px;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+/* MAGAZINE */
+#mag-notify {
+    position: fixed;
+    bottom: 25px;
+    right: -450px;
+    width: 85%;
+    max-width: 320px;
+    background: rgba(26,26,46,0.95);
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    transition: 0.8s;
+    z-index: 2000001;
+}
+
+#mag-notify.show {
+    right: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader-screen">
+    <div class="loader-ring"></div>
+    <div class="loader-text">Launching RCC Astro Quiz...</div>
+</div>
+
+<!-- INSTALL -->
+<div id="install-bar">
+    Install App
+    <button id="install-btn">Install</button>
+</div>
+
+<!-- MAGAZINE -->
+<div id="mag-notify">
+    🚀 EXPLORA MAGAZINE
+</div>
+
+<!-- IFRAME -->
+<div id="iframe-holder"></div>
+
+<script>
+
+// ---------------- IFRAME LOAD ----------------
+(function(){
+    const loader = document.getElementById("loader-screen");
+
+    const url = atob("aHR0cHM6Ly9yY2MtYXN0cm8tcXVpei5iYXNlNDQuYXBw");
+
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+
+    iframe.onload = () => {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 500);
+    };
+
+    document.getElementById("iframe-holder").appendChild(iframe);
+})();
+
+
+// ---------------- INSTALL BAR ----------------
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById("install-bar").style.display = "block";
+});
+
+// ---------------- MAGAZINE ----------------
+const mag = document.getElementById("mag-notify");
+
+function showMag() {
+    // 🚀 disable popup when install bar visible
+    if (document.getElementById("install-bar").style.display === "block") return;
+
+    mag.classList.add("show");
+    setTimeout(() => mag.classList.remove("show"), 15000);
+}
+
+setTimeout(showMag, 8000);
+setInterval(showMag, 300000);
+
+</script>
+
+</body>
+</html>

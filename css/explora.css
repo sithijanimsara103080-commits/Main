@@ -1,0 +1,85 @@
+/* ==========================================
+   RADAPASA EXPLORA - NEWS PAGE STYLES
+   ========================================== */
+
+/* Page specific styles for Explora news section */
+
+.explora-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Article Card Styles */
+.article-card {
+    transition: all 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+}
+
+.article-card img {
+    transition: transform 0.5s ease;
+}
+
+.article-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Article Grid */
+.articles-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Featured Article */
+.featured-article {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .featured-article {
+        flex-direction: row;
+    }
+}
+
+/* Category Badge */
+.category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Read More Link */
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #60a5fa;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #93c5fd;
+}
+
+.read-more::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.read-more:hover::after {
+    transform: translateX(4px);
+}

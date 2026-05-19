@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RADAPASA EXPLORA™ - Astronomy News & Updates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400..800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/premium-ui.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+    <!-- Cosmic Preloader -->
+    <div id="cosmic-preloader">
+        <div class="supernova-flash"></div>
+        <div class="preloader-portal">
+            <div class="portal-ring"></div>
+            <div class="portal-ring"></div>
+            <div class="portal-core"></div>
+        </div>
+        <p class="mt-8 font-oswald tracking-[0.3em] uppercase text-blue-400 animate-pulse">Scanning Deep Space</p>
+    </div>
+
+    <!-- Animated Background (UnicornStudio) -->
+    <div class="fixed inset-0 z-[-2] overflow-hidden">
+        <div class="relative w-full h-full">
+            <div data-us-project="OGV3DwiIWxPelWFZjtEu" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+            <script type="text/javascript">
+                !function () { if (!window.UnicornStudio) { window.UnicornStudio = { isInitialized: !1 }; var i = document.createElement("script"); i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.34/dist/unicornStudio.umd.js", i.onload = function () { window.UnicornStudio.isInitialized || (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }, (document.head || document.body).appendChild(i) } }();
+            </script>
+        </div>
+    </div>
+
+    <!-- Ambient Background Glows -->
+    <div
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[80rem] h-[50rem] bg-indigo-900/10 rounded-full blur-[120px] pointer-events-none z-0">
+    </div>
+    <div
+        class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-violet-500/5 rounded-full blur-[100px] pointer-events-none z-0">
+    </div>
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[600px] bg-blue-900/10 rounded-full blur-[120px] opacity-40">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center">
+                    <h1 class="text-2xl font-oswald font-bold text-white tracking-widest uppercase">RADAPASA</h1>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                    <a href="../index.html#about" class="text-slate-300 hover:text-white transition-colors">About</a>
+                    <a href="../index.html#events" class="text-slate-300 hover:text-white transition-colors">Events</a>
+                    <a href="../index.html#contact"
+                        class="text-slate-300 hover:text-white transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow relative z-10">
+
+        <!-- Hero Section -->
+        <section class="relative z-10 pt-32 pb-20">
+            <div class="container mx-auto px-4">
+                <div class="max-w-5xl mx-auto text-center">
+                    <!-- Title -->
+                    <div class="mb-8">
+                        <h1 class="text-8xl md:text-9xl font-bold text-white mb-6 leading-none glow-text"
+                            style="font-family: 'Oswald', sans-serif;">
+                            EXPLORA
+                        </h1>
+                        <div class="h-1 w-32 bg-blue-600 mx-auto rounded-full"></div>
+                    </div>
+                    <!-- Subtitle -->
+                    <p class="text-xl md:text-2xl text-slate-300 mb-12 max-w-3xl mx-auto">
+                        Discover the latest breakthroughs in astronomy and space exploration. Your gateway to the
+                        cosmos.
+                    </p>
+                    <div class="flex gap-4 justify-center">
+                        <a href="#articles"
+                            class="px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors font-medium">
+                            Explore Articles
+                        </a>
+                        <a href="../index.html"
+                            class="px-8 py-3 border border-white/20 text-white rounded-full hover:bg-white/10 transition-colors font-medium">
+                            Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="py-16 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 glow-text">Latest Discoveries</h2>
+                    <p class="text-slate-400 max-w-2xl mx-auto">Stay updated with the latest in astronomy and space
+                        exploration</p>
+                </div>
+
+                <div class="flex flex-col gap-8 max-w-6xl mx-auto">
+
+                    <div id="articles-container" class="flex flex-col gap-8 max-w-6xl mx-auto w-full">
+                        <!-- Dynamic Articles Here -->
+                        <div class="text-center p-20 text-slate-500 w-full animate-pulse">
+                            Loading latest discoveries...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-slate-900/50 border-t border-slate-800 py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-2xl font-oswald font-bold text-white mb-4">RADAPASA ASTRONOMY SOCIETY</h3>
+                <p class="text-slate-400 mb-6">Exploring the cosmos, one discovery at a time</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="../index.html" class="text-slate-400 hover:text-white transition-colors">Home</a>
+                    <a href="../index.html#about" class="text-slate-400 hover:text-white transition-colors">About</a>
+                    <a href="../index.html#events" class="text-slate-400 hover:text-white transition-colors">Events</a>
+                    <a href="../index.html#contact"
+                        class="text-slate-400 hover:text-white transition-colors">Contact</a>
+                </div>
+                <p class="text-slate-500 text-sm mt-8">© 2026 Radapasa Astronomy Society. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SUPABASE INTEGRATION SCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const SUPABASE_URL = 'https://vrrlypwvymwkmxigsahb.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZycmx5cHd2eW13a214aWdzYWhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjUxMjMsImV4cCI6MjA5MzIwMTEyM30.Zah9vOfiVxA_4Ihbk25UEj6qX_lK4j6QkHtMM1Oi58c';
+
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            async function loadArticles() {
+                const container = document.getElementById('articles-container');
+
+                try {
+                    const { data: articles, error } = await supabase
+                        .from('explora_articles')
+                        .select('*')
+                        .order('created_at', { ascending: false });
+
+                    if (error) {
+                        console.error('Error fetching articles:', error);
+                        container.innerHTML = '<div class="text-center p-20 text-red-400">Error loading articles. Please try again later.</div>';
+                        return;
+                    }
+
+                    if (!articles || articles.length === 0) {
+                        container.innerHTML = '<div class="text-center p-20 text-slate-500">No articles found yet. Check back soon!</div>';
+                        return;
+                    }
+
+                    let html = '';
+                    articles.forEach(article => {
+                        const dateObj = new Date(article.created_at);
+                        const dateStr = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                        // Use article.image_url if it exists, otherwise use a default placeholder
+                        const imageUrl = article.image_url || 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80';
+
+                        // Link to a detailed article page (you'll need to create article.html to handle this)
+                        // Passing the ID in the URL so the next page knows which article to load
+                        const articleLink = `article.html?name=${article.slug || article.id}`;
+
+                        html += `
+                            <article class="card-hover rounded-xl overflow-hidden bg-slate-900/50 border border-slate-700 flex flex-col md:flex-row w-full">
+                                <a href="${articleLink}" class="md:w-1/3 relative aspect-video md:aspect-auto overflow-hidden block">
+                                    <img src="${imageUrl}" 
+                                         alt="${article.title}" 
+                                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                         onerror="this.src='https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80'">
+                                </a>
+                                <div class="p-6 md:w-2/3 flex flex-col">
+                                    <div class="flex items-center text-sm text-slate-400 mb-4 space-x-4">
+                                        <span>${dateStr}</span>
+                                        <span>•</span>
+                                        <span>${article.author || 'Radapasa Team'}</span>
+                                    </div>
+                                    <a href="${articleLink}">
+                                        <h2 class="text-2xl font-semibold text-white mb-3 hover:text-blue-400 transition-colors font-oswald">
+                                            ${article.title}
+                                        </h2>
+                                    </a>
+                                    <p class="text-slate-400 line-clamp-3 mb-4 flex-grow font-sans">
+                                        ${article.excerpt || article.content?.substring(0, 150) + '...' || 'Read more about this fascinating discovery...'}
+                                    </p>
+                                    <a href="${articleLink}" class="inline-block text-blue-400 hover:text-blue-300 font-medium transition-colors mt-auto w-max">
+                                        Read More →
+                                    </a>
+                                </div>
+                            </article>
+                        `;
+                    });
+
+                    container.innerHTML = html;
+
+                } catch (err) {
+                    console.error('Unexpected error:', err);
+                    container.innerHTML = '<div class="text-center p-20 text-red-400">An unexpected error occurred.</div>';
+                }
+            }
+
+            loadArticles();
+        });
+    </script>
+    <script src="../js/premium-ui.js"></script>
+</body>
+
+</html>

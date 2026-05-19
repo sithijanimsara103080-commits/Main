@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Loading Article... | RADAPASA EXPLORA™</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000000;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-[-2] overflow-hidden">
+        <div data-us-project="OGV3DwiIWxPelWFZjtEu" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+        <script type="text/javascript">
+            !function () { if (!window.UnicornStudio) { window.UnicornStudio = { isInitialized: !1 }; var i = document.createElement("script"); i.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.34/dist/unicornStudio.umd.js", i.onload = function () { window.UnicornStudio.isInitialized || (UnicornStudio.init(), window.UnicornStudio.isInitialized = !0) }, (document.head || document.body).appendChild(i) } }();
+        </script>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center">
+                <h1 class="text-2xl font-oswald font-bold text-white tracking-widest uppercase">RADAPASA</h1>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="../index.html" class="text-slate-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html" class="text-slate-300 hover:text-white transition-colors">Articles</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow relative z-10 pt-32 pb-16">
+        <div class="container mx-auto px-4">
+            <div id="article-wrapper" class="max-w-4xl mx-auto">
+                <div class="text-center py-20">Loading article...</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="relative z-10 bg-slate-900/50 border-t border-slate-800 py-12 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-oswald font-bold text-white mb-4">RADAPASA ASTRONOMY SOCIETY</h3>
+            <p class="text-slate-500 text-sm">© 2026 Radapasa Astronomy Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = "https://vrrlypwvymwkmxigsahb.supabase.co";
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZycmx5cHd2eW13a214aWdzYWhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MjUxMjMsImV4cCI6MjA5MzIwMTEyM30.Zah9vOfiVxA_4Ihbk25UEj6qX_lK4j6QkHtMM1Oi58c';
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get('name');
+            const wrapper = document.getElementById('article-wrapper');
+
+            if (!name) {
+                wrapper.innerHTML = '<div class="text-center py-20 text-red-400">Article not specified. <a href="index.html" class="underline">Back to articles</a></div>';
+                return;
+            }
+
+            try {
+                // First try to fetch by slug
+                let { data: article, error } = await supabaseClient
+                    .from('explora_articles')
+                    .select('*')
+                    .eq('slug', name)
+                    .maybeSingle();
+
+                // If not found by slug, it might be an ID (UUID)
+                if (!article && !error) {
+                    const { data: articleById, error: errorById } = await supabaseClient
+                        .from('explora_articles')
+                        .select('*')
+                        .eq('id', name)
+                        .maybeSingle();
+                    article = articleById;
+                    error = errorById;
+                }
+
+                if (error) throw error;
+
+                if (article) {
+                    document.getElementById('page-title').textContent = article.title + " | RADAPASA EXPLORA™";
+                    wrapper.innerHTML = `
+                        <div class="mb-8">
+                            <a href="index.html" class="inline-flex items-center text-slate-400 hover:text-blue-400 transition-colors">
+                                ← Back to all articles
+                            </a>
+                        </div>
+                        <article class="bg-slate-900/40 backdrop-blur-md rounded-xl overflow-hidden border border-slate-700">
+                            <div class="relative h-[300px] md:h-[400px] overflow-hidden">
+                                <img src="${article.image_url || article.image || '../assets/EP_img/1st image.png'}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6 md:p-10">
+                                <div class="flex items-center text-sm text-slate-400 mb-6 gap-4">
+                                    <span>${new Date(article.created_at).toLocaleDateString()}</span>
+                                    <span>•</span>
+                                    <span>${article.author || 'Radapasa Team'}</span>
+                                </div>
+                                <h1 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">${article.title}</h1>
+                                <div class="prose prose-lg prose-invert max-w-none text-slate-300 leading-relaxed whitespace-pre-wrap">
+                                    ${article.content}
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                } else {
+                    wrapper.innerHTML = '<div class="text-center py-20 text-slate-400">Article not found. <a href="index.html" class="underline">Back to articles</a></div>';
+                }
+            } catch (err) {
+                console.error('Fetch Error:', err);
+                wrapper.innerHTML = `<div class="text-center py-20 text-red-400">Error loading article: ${err.message}</div>`;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+
+</html>

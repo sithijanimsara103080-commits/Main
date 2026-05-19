@@ -1,0 +1,215 @@
+/* ==========================================
+   RADAPASA ASTRONOMY SOCIETY - MAIN STYLES
+   ========================================== */
+
+/* Base Styles */
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-background: #000000;
+  --color-surface: #0a0a0c;
+  --color-text: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+}
+
+.font-newsreader {
+  font-family: 'Newsreader', serif !important;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Blur In */
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Animation In (Combined) */
+@keyframes animationIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Rotating Animation */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Infinite Scroll */
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Slideshow - Fade Transition */
+@keyframes slideshow {
+  0%, 16%, 100% { opacity: 0; }
+  4%, 12% { opacity: 1; }
+}
+
+/* ==========================================
+   ANIMATION CLASSES
+   ========================================== */
+
+.scroll-item {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-fade-up {
+  animation-name: fadeInUp;
+}
+
+.scroll-blur-in {
+  animation-name: blurIn;
+}
+
+.text-animate-in {
+  animation: animationIn 0.8s ease-out both;
+}
+
+.text-fade-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.text-blur-in {
+  animation: blurIn 0.8s ease-out both;
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Scroll Animation States */
+.animate-on-scroll {
+  animation-play-state: paused !important;
+}
+
+.animate-on-scroll.animate {
+  animation-play-state: running !important;
+}
+
+/* Image Animations */
+.image-rotate {
+  animation: rotate 20s linear infinite;
+}
+
+.veritcal {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slideshow {
+  animation: slideshow 3s ease-in-out infinite;
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+}
+
+.animate-infinite-scroll-reverse {
+  animation: infinite-scroll 30s linear infinite reverse;
+}
+
+/* ==========================================
+   COMPONENT STYLES
+   ========================================== */
+
+/* Glassmorphism */
+.glass-card {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5),
+              0 20px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glow Effect */
+.glow-text {
+  text-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+/* Card Hover Effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+}
+
+/* No Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Invisible Helper */
+.invisible {
+  visibility: hidden !important;
+}
