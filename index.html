@@ -705,7 +705,7 @@
         
         if (!teachersError && teachersData && teachersData.length > 0) {
           teachersContainer.innerHTML = teachersData.map(t => {
-            const tAvatar = t.image_url || 'https://rccastro.kesug.com/assets/astronaut.webp';
+            const tAvatar = t.image_url || 'assets/astronaut.webp';
             return `
               <div class="w-72 p-6 border border-amber-500/40 bg-black/40 backdrop-blur-sm text-center transform hover:scale-105 transition-all duration-300 flex flex-col items-center">
                 <img src="${tAvatar}" class="w-24 h-24 rounded-full object-cover mb-4 border border-amber-500/30 shadow-lg" onerror="this.src='https://rccastro.kesug.com/assets/astronaut.webp'">
